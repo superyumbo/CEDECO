@@ -8,7 +8,7 @@ import pandas as pd
 import os
 
 # Importar módulos de páginas
-from utils.load_data import load_data, load_sample_data
+from utils.load_data import load_data
 from pages.home import show_home_page
 from pages.basic_info import show_basic_info
 from pages.infrastructure import show_infrastructure
@@ -69,23 +69,9 @@ def main():
     st.markdown('<div class="main-header">CEDECO - Centro de Desarrollo Comunitario</div>', unsafe_allow_html=True)
     st.markdown('Dashboard para análisis de comedores comunitarios y su potencial como centros de desarrollo')
     
-    # Verificar existencia del archivo de credenciales
-    if not os.path.exists('credentials.json'):
-        st.error("El archivo de credenciales 'credentials.json' no se encuentra en la carpeta del proyecto.")
-        st.info("""
-        Para conectarse a Google Sheets, se necesita un archivo de credenciales. Por favor:
-        1. Asegúrate de que el archivo 'credentials.json' está en la misma carpeta que el archivo main.py
-        2. Verifica que las credenciales tienen permisos para acceder a la hoja de cálculo de CEDECO
-        
-        Mientras tanto, se mostrarán datos de ejemplo para demostración.
-        """)
-        df = load_sample_data()
-    else:
-        # Cargar datos
+    # Cargar datos directamente del libro/archivo
+    with st.spinner("Cargando datos..."):
         df = load_data()
-        if df is None:
-            st.warning("Se están utilizando datos de ejemplo para demostración.")
-            df = load_sample_data()
     
     # Menú lateral
     section = st.sidebar.radio(
