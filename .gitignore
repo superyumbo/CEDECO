@@ -1,0 +1,62 @@
+# Archivos de credenciales
+credentials.json
+
+# Archivos de configuración de Streamlit local (no los secretos en .streamlit/secrets.toml)
+.streamlit/config.toml
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Entornos virtuales
+venv/
+ENV/
+env/
+.env/
+.venv/
+
+# Archivos temporales
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Caches
+.cache/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# PyCharm
+.idea/
+
+# VSCode
+.vscode/
+
+# Archivos de procesamiento de datos
+*.csv
+*.xlsx
+*.xls
+*.json
+!requirements.txt
